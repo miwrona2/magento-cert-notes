@@ -1,6 +1,14 @@
 - old [Exam Study Guide: Magento 2 Certified Associate Developer](https://magento-u.magento.com/magento-u/downloads/M2%20Cert%20Assoc%20Dev%20Exam%20v2_3%20Study%20Gd.pdf)
 - new [Exam Guide: Adobe Certified Professional - Magento Commerce Developer (AD0-E702)](https://spark.adobe.com/page/ClHLYMaUjTUfa/)
 
+Chapters
+###### [1. Magento Architecture and Customization Techniques](#contents-1)
+###### [2. Request Flow Processing](#contents-2)
+###### [3. Customizing the Magento UI](#contents-3)
+###### [4. Working with Databases in Magento](#contents-4)
+###### [5. Developing with Adminhtml](#contents-5)
+###### [6. Customizing Magneto Business Logic](#contents-6)
+
 <a name="contents-1"></a>
 ## 1 Magento Architecture and Customization Techniques
 ### [1.1 Describe the Magento module-based architecture](#11)
