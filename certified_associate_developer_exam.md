@@ -1,5 +1,3 @@
-[Acc](useful.md)
-
 [Official Magento Study Guide](https://magento-u.magento.com/magento-u/downloads/M2%20Cert%20Assoc%20Dev%20Exam%20v2_3%20Study%20Gd.pdf)
 
 https://spark.adobe.com/page/saM506xrYKi0p/
