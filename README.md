@@ -1,7 +1,5 @@
-[Official Magento Study Guide](https://magento-u.magento.com/magento-u/downloads/M2%20Cert%20Assoc%20Dev%20Exam%20v2_3%20Study%20Gd.pdf)
-
-https://spark.adobe.com/page/saM506xrYKi0p/
-https://spark.adobe.com/page/ClHLYMaUjTUfa/
+- old [Exam Study Guide: Magento 2 Certified Associate Developer](https://magento-u.magento.com/magento-u/downloads/M2%20Cert%20Assoc%20Dev%20Exam%20v2_3%20Study%20Gd.pdf)
+- new [Exam Guide: Adobe Certified Professional - Magento Commerce Developer (AD0-E702)](https://spark.adobe.com/page/ClHLYMaUjTUfa/)
 
 <a name="contents-1"></a>
 ## 1 Magento Architecture and Customization Techniques
