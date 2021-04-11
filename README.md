@@ -1658,7 +1658,7 @@ class UpdateCustomerCustomAttr implements DataPatchInterface
 
 - create DataPatch extending `Magento\Framework\Setup\Patch\DataPatchInterface`
 - create `\Magento\Eav\Setup\EavSetup` instance using `Magento\Customer\Setup\CustomerSetupFactory` and use method `addAttribute`
-- add confing to attribute, to display this attribute on required form in backend 
+- add config to attribute, to display this attribute on required form in backend 
 ```php
         $attribute = $customerSetup->getEavConfig()
             ->getAttribute('customer_address', 'new_field')
@@ -1673,7 +1673,7 @@ class UpdateCustomerCustomAttr implements DataPatchInterface
             ]);
 ```
 - displaying attribute on frontend forms is more complicated [magento.stackexchange](https://magento.stackexchange.com/questions/125194/how-to-add-a-customer-custom-attribute-in-the-customer-address-edit-form/125367#125367)
-- in the end save attribute in database, don't use ``$attribute->save()`` (it works, but is deprecated), instead of this use resource model.
+- in the end save attribute in a database, don't use ``$attribute->save()`` (it works, but is deprecated), instead of this use resource model.
 
 ##### Example
 ```php
