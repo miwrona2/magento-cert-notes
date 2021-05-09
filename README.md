@@ -1487,6 +1487,97 @@ class Price extends TypePrice
 }
 
 ```
+<a name="66"></a>
+### [6.6](#contents-6)
+### How would you add another tab in the “My Account” section?
+
+I will create tab "Main Page" on "My Account" menu between tabs "My Account" ****and **"**My ****Orders**"**, which will link to store home page.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf71b8de-0095-44c8-a625-744952773ef6/my-account.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf71b8de-0095-44c8-a625-744952773ef6/my-account.png)
+
+1. I have found layout files related to tabs "My Account" and "My Orders"
+   `vendor/magento/module-customer/view/frontend/layout/customer_account.xml`
+
+    ```
+    ...
+    <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-account-link">
+        <arguments>
+            <argument name="label" xsi:type="string" translate="true">My Account</argument>
+            <argument name="path" xsi:type="string">customer/account</argument>
+            <argument name="sortOrder" xsi:type="number">250</argument>
+        </arguments>
+    </block>
+    ...
+    ```
+
+   `vendor/magento/module-sales/view/frontend/layout/customer_account.xml`
+
+    ```
+    ...
+    <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-orders-link">
+        <arguments>
+            <argument name="path" xsi:type="string">sales/order/history</argument>
+            <argument name="label" xsi:type="string" translate="true">My Orders</argument>
+            <argument name="sortOrder" xsi:type="number">230</argument>
+        </arguments>
+    </block>
+    ...
+    ```
+
+   they have `sortOrder` values: "My Account" - 250 and "My Orders" - 230
+
+2. I created layout file:
+   `app/code/Cert/CustomizingMagentoBusinessLogic/view/frontend/layout/customer_account.xml`
+
+```
+<?xml version="1.0"?>
+<body>
+    <referenceContainer name="content">
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Customer\Block\Account\SortLinkInterface" name="main-page"
+                   after="customer-account-navigation-account-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Main Page</argument>
+                    <argument name="path" xsi:type="string">/</argument>
+                    <argument name="sortOrder" xsi:type="number">240</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </referenceContainer>
+</body>
+
+```
+
+as you can see I set `sortOrder` to **240** and blocks "after" attribute to **customer-account-navigation-account-link**
+
+After clearing layouts cache `bin/magento c:c layout` tab appears in menu:
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0629395b-9395-4a5e-bb7f-55e3df8722ab/my-account-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0629395b-9395-4a5e-bb7f-55e3df8722ab/my-account-2.png)
+### How do you customize the order history page?
+
+Find layout file that is behind order history page (`vendor/magento/module-sales/view/frontend/layout/sales_order_history.xml`)  
+and override it be creating file with the same name in your custom module in directory `view/frontend/layout/`
+
+`app/code/Cert/CustomizingMagentoBusinessLogic/view/frontend/layout/sales_order_history.xml`
+
+```xml
+<?xml version="1.0"?>
+<body>
+    <referenceContainer name="content">
+        <referenceBlock name="sales.order.history.info">
+            <block template="Cert_CustomizingMagentoBusinessLogic::custom.phtml"/>
+        </referenceBlock>
+    </referenceContainer>
+</body>
+```
+
+`app/code/Cert/CustomizingMagentoBusinessLogic/view/frontend/templates/custom.phtml`
+
+```php
+<?php
+echo "<h2> Custom Content </h2>";
+```
+
 <a name="67"></a>
 ### [6.7](#contents-6)
 #### How do you add or modify customer attributes in a setup script?
