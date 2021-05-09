@@ -1491,14 +1491,15 @@ class Price extends TypePrice
 ### [6.6](#contents-6)
 ### How would you add another tab in the “My Account” section?
 
-I will create tab "Main Page" on "My Account" menu between tabs "My Account" ****and **"**My ****Orders**"**, which will link to store home page.
+I will create tab "Main Page" on "My Account" menu between tabs "My Account" and "My Orders", which will link to 
+the stores home page.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf71b8de-0095-44c8-a625-744952773ef6/my-account.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf71b8de-0095-44c8-a625-744952773ef6/my-account.png)
+![my-account](images/my-account.png)
 
 1. I have found layout files related to tabs "My Account" and "My Orders"
    `vendor/magento/module-customer/view/frontend/layout/customer_account.xml`
 
-    ```
+    ```xml
     ...
     <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-account-link">
         <arguments>
@@ -1512,7 +1513,7 @@ I will create tab "Main Page" on "My Account" menu between tabs "My Account" ***
 
    `vendor/magento/module-sales/view/frontend/layout/customer_account.xml`
 
-    ```
+    ```xml
     ...
     <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-orders-link">
         <arguments>
@@ -1524,12 +1525,12 @@ I will create tab "Main Page" on "My Account" menu between tabs "My Account" ***
     ...
     ```
 
-   they have `sortOrder` values: "My Account" - 250 and "My Orders" - 230
+   they have `sortOrder` values: "My Account" - **250** and "My Orders" - **230**
 
 2. I created layout file:
    `app/code/Cert/CustomizingMagentoBusinessLogic/view/frontend/layout/customer_account.xml`
 
-```
+```xml
 <?xml version="1.0"?>
 <body>
     <referenceContainer name="content">
@@ -1548,11 +1549,11 @@ I will create tab "Main Page" on "My Account" menu between tabs "My Account" ***
 
 ```
 
-as you can see I set `sortOrder` to **240** and blocks "after" attribute to **customer-account-navigation-account-link**
+as you can see I set `sortOrder` to **240** and blocks `after` attribute to **customer-account-navigation-account-link**
 
 After clearing layouts cache `bin/magento c:c layout` tab appears in menu:
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0629395b-9395-4a5e-bb7f-55e3df8722ab/my-account-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0629395b-9395-4a5e-bb7f-55e3df8722ab/my-account-2.png)
+![my-account-2](images/my-account-2.png)
 ### How do you customize the order history page?
 
 Find layout file that is behind order history page (`vendor/magento/module-sales/view/frontend/layout/sales_order_history.xml`)  
