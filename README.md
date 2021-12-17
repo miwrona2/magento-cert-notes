@@ -58,6 +58,8 @@ Modules are usually located in Magento 2 vendor directory. The directory has the
 - language – for language packs (language de_de)
 
 source: [amasty](https://amasty.com/blog/magento-2-certification-module-based-architecture/)
+        [official docs](https://devdocs.magento.com/guides/v2.4/extension-dev-guide/prepare/dev-modtypes.html)
+    
 #### When would you place a module in the app/code folder versus another location? 
 The `app/code` directory is right place for custom module (i.g. new functionality, Magento functionality customization). 
 The third party modules (e.g. paid extensions) and Magento core modules should be placed in `vendor/` directory. 
